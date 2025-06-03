@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Patients index{% endblock %}
+
+{% block body %}
+    <h1>Patients index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Age</th>
+                <th>Image</th>
+                <th>Profession</th>
+                <th>Statutmatrimonial</th>
+                <th>Valide</th>
+                <th>NomComplet</th>
+                <th>Sexe</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Adresse</th>
+                <th>ZipCode</th>
+                <th>Ville</th>
+                <th>Pays</th>
+                <th>Type</th>
+                <th>Telephone</th>
+                <th>Date_naiss</th>
+                <th>DateLastconnection</th>
+                <th>Date_validation</th>
+                <th>Date_inscription</th>
+                <th>Datereinitialisation</th>
+                <th>Shortcode</th>
+                <th>Token</th>
+                <th>Oldpwdlist</th>
+                <th>Nombreenfant</th>
+                <th>Mobiletelephone</th>
+                <th>Nbvisite</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for patient in patients %}
+            <tr>
+                <td>{{ patient.id }}</td>
+                <td>{{ patient.age }}</td>
+                <td>{{ patient.image }}</td>
+                <td>{{ patient.profession }}</td>
+                <td>{{ patient.statutmatrimonial }}</td>
+                <td>{{ patient.valide ? 'Yes' : 'No' }}</td>
+                <td>{{ patient.nomComplet }}</td>
+                <td>{{ patient.sexe }}</td>
+                <td>{{ patient.nom }}</td>
+                <td>{{ patient.prenom }}</td>
+                <td>{{ patient.username }}</td>
+                <td>{{ patient.email }}</td>
+                <td>{{ patient.password }}</td>
+                <td>{{ patient.adresse }}</td>
+                <td>{{ patient.zipCode }}</td>
+                <td>{{ patient.ville }}</td>
+                <td>{{ patient.pays }}</td>
+                <td>{{ patient.type }}</td>
+                <td>{{ patient.telephone }}</td>
+                <td>{{ patient.dateNaiss ? patient.dateNaiss|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ patient.dateLastconnection ? patient.dateLastconnection|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ patient.dateValidation ? patient.dateValidation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ patient.dateInscription ? patient.dateInscription|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ patient.datereinitialisation ? patient.datereinitialisation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ patient.shortcode }}</td>
+                <td>{{ patient.token }}</td>
+                <td>{{ patient.oldpwdlist }}</td>
+                <td>{{ patient.nombreenfant }}</td>
+                <td>{{ patient.mobiletelephone }}</td>
+                <td>{{ patient.nbvisite }}</td>
+                <td>
+                    <a href="{{ path('app_patients_show', {'id': patient.id}) }}">show</a>
+                    <a href="{{ path('app_patients_edit', {'id': patient.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="31">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_patients_new') }}">Create new</a>
+{% endblock %}

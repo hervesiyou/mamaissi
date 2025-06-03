@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ExamenPrix{% endblock %}
+
+{% block body %}
+    <h1>Create new ExamenPrix</h1>
+
+    {{ include('examen_prix/_form.html.twig') }}
+
+    <a href="{{ path('app_examen_prix_index') }}">back to list</a>
+{% endblock %}

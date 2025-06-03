@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rendezvous{% endblock %}
+
+{% block body %}
+    <h1>Rendezvous</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ rendezvou.id }}</td>
+            </tr>
+            <tr>
+                <th>Jour</th>
+                <td>{{ rendezvou.jour }}</td>
+            </tr>
+            <tr>
+                <th>Mois</th>
+                <td>{{ rendezvou.mois }}</td>
+            </tr>
+            <tr>
+                <th>Annee</th>
+                <td>{{ rendezvou.annee }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ rendezvou.etat }}</td>
+            </tr>
+            <tr>
+                <th>But</th>
+                <td>{{ rendezvou.but }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ rendezvou.datecreation ? rendezvou.datecreation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ rendezvou.date }}</td>
+            </tr>
+            <tr>
+                <th>Heurevalide</th>
+                <td>{{ rendezvou.heurevalide }}</td>
+            </tr>
+            <tr>
+                <th>Heure</th>
+                <td>{{ rendezvou.heure }}</td>
+            </tr>
+            <tr>
+                <th>Quartier</th>
+                <td>{{ rendezvou.quartier }}</td>
+            </tr>
+            <tr>
+                <th>Region</th>
+                <td>{{ rendezvou.region }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ rendezvou.ville }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ rendezvou.prix }}</td>
+            </tr>
+            <tr>
+                <th>Specialite</th>
+                <td>{{ rendezvou.specialite }}</td>
+            </tr>
+            <tr>
+                <th>Coderdv</th>
+                <td>{{ rendezvou.coderdv }}</td>
+            </tr>
+            <tr>
+                <th>Modevisio</th>
+                <td>{{ rendezvou.modevisio }}</td>
+            </tr>
+            <tr>
+                <th>Codepatient</th>
+                <td>{{ rendezvou.codepatient }}</td>
+            </tr>
+            <tr>
+                <th>Titreconf</th>
+                <td>{{ rendezvou.titreconf }}</td>
+            </tr>
+            <tr>
+                <th>Dateconf</th>
+                <td>{{ rendezvou.dateconf }}</td>
+            </tr>
+            <tr>
+                <th>Idconf</th>
+                <td>{{ rendezvou.idconf }}</td>
+            </tr>
+            <tr>
+                <th>Cssclass</th>
+                <td>{{ rendezvou.cssclass }}</td>
+            </tr>
+            <tr>
+                <th>Etatpaiement</th>
+                <td>{{ rendezvou.etatpaiement }}</td>
+            </tr>
+            <tr>
+                <th>Datepaiement</th>
+                <td>{{ rendezvou.datepaiement ? rendezvou.datepaiement|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ rendezvou.code }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_rendezvous_index') }}">back to list</a>
+
+    <a href="{{ path('app_rendezvous_edit', {'id': rendezvou.id}) }}">edit</a>
+
+    {{ include('rendezvous/_delete_form.html.twig') }}
+{% endblock %}

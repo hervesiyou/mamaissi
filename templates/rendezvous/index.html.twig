@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rendezvous index{% endblock %}
+
+{% block body %}
+    <h1>Rendezvous index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Jour</th>
+                <th>Mois</th>
+                <th>Annee</th>
+                <th>Etat</th>
+                <th>But</th>
+                <th>Datecreation</th>
+                <th>Date</th>
+                <th>Heurevalide</th>
+                <th>Heure</th>
+                <th>Quartier</th>
+                <th>Region</th>
+                <th>Ville</th>
+                <th>Prix</th>
+                <th>Specialite</th>
+                <th>Coderdv</th>
+                <th>Modevisio</th>
+                <th>Codepatient</th>
+                <th>Titreconf</th>
+                <th>Dateconf</th>
+                <th>Idconf</th>
+                <th>Cssclass</th>
+                <th>Etatpaiement</th>
+                <th>Datepaiement</th>
+                <th>Code</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rendezvou in rendezvouses %}
+            <tr>
+                <td>{{ rendezvou.id }}</td>
+                <td>{{ rendezvou.jour }}</td>
+                <td>{{ rendezvou.mois }}</td>
+                <td>{{ rendezvou.annee }}</td>
+                <td>{{ rendezvou.etat }}</td>
+                <td>{{ rendezvou.but }}</td>
+                <td>{{ rendezvou.datecreation ? rendezvou.datecreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ rendezvou.date }}</td>
+                <td>{{ rendezvou.heurevalide }}</td>
+                <td>{{ rendezvou.heure }}</td>
+                <td>{{ rendezvou.quartier }}</td>
+                <td>{{ rendezvou.region }}</td>
+                <td>{{ rendezvou.ville }}</td>
+                <td>{{ rendezvou.prix }}</td>
+                <td>{{ rendezvou.specialite }}</td>
+                <td>{{ rendezvou.coderdv }}</td>
+                <td>{{ rendezvou.modevisio }}</td>
+                <td>{{ rendezvou.codepatient }}</td>
+                <td>{{ rendezvou.titreconf }}</td>
+                <td>{{ rendezvou.dateconf }}</td>
+                <td>{{ rendezvou.idconf }}</td>
+                <td>{{ rendezvou.cssclass }}</td>
+                <td>{{ rendezvou.etatpaiement }}</td>
+                <td>{{ rendezvou.datepaiement ? rendezvou.datepaiement|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ rendezvou.code }}</td>
+                <td>
+                    <a href="{{ path('app_rendezvous_show', {'id': rendezvou.id}) }}">show</a>
+                    <a href="{{ path('app_rendezvous_edit', {'id': rendezvou.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="26">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_rendezvous_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Consultations{% endblock %}
+
+{% block body %}
+    <h1>Edit Consultations</h1>
+
+    {{ include('consultations/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_consultations_index') }}">back to list</a>
+
+    {{ include('consultations/_delete_form.html.twig') }}
+{% endblock %}

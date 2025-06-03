@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ExamenPrix index{% endblock %}
+
+{% block body %}
+    <h1>ExamenPrix index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for examen_prix in examen_prixes %}
+            <tr>
+                <td>{{ examen_prix.id }}</td>
+                <td>{{ examen_prix.nom }}</td>
+                <td>{{ examen_prix.description }}</td>
+                <td>{{ examen_prix.prix }}</td>
+                <td>
+                    <a href="{{ path('app_examen_prix_show', {'id': examen_prix.id}) }}">show</a>
+                    <a href="{{ path('app_examen_prix_edit', {'id': examen_prix.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_examen_prix_new') }}">Create new</a>
+{% endblock %}

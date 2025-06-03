@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Consultations index{% endblock %}
+
+{% block body %}
+    <h1>Consultations index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Dateconsultation</th>
+                <th>Medecin</th>
+                <th>Donnees</th>
+                <th>Synthese</th>
+                <th>Decision</th>
+                <th>Maladies</th>
+                <th>Type</th>
+                <th>Lieu</th>
+                <th>Ilc</th>
+                <th>Imc</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for consultation in consultations %}
+            <tr>
+                <td>{{ consultation.id }}</td>
+                <td>{{ consultation.dateconsultation ? consultation.dateconsultation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ consultation.medecin }}</td>
+                <td>{{ consultation.donnees }}</td>
+                <td>{{ consultation.synthese }}</td>
+                <td>{{ consultation.decision }}</td>
+                <td>{{ consultation.maladies }}</td>
+                <td>{{ consultation.type }}</td>
+                <td>{{ consultation.lieu }}</td>
+                <td>{{ consultation.ilc ? 'Yes' : 'No' }}</td>
+                <td>{{ consultation.imc ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_consultations_show', {'id': consultation.id}) }}">show</a>
+                    <a href="{{ path('app_consultations_edit', {'id': consultation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_consultations_new') }}">Create new</a>
+{% endblock %}

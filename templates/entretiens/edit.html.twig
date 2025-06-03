@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Entretiens{% endblock %}
+
+{% block body %}
+    <h1>Edit Entretiens</h1>
+
+    {{ include('entretiens/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_entretiens_index') }}">back to list</a>
+
+    {{ include('entretiens/_delete_form.html.twig') }}
+{% endblock %}

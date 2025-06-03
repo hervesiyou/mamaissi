@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Consultations{% endblock %}
+
+{% block body %}
+    <h1>Consultations</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ consultation.id }}</td>
+            </tr>
+            <tr>
+                <th>Dateconsultation</th>
+                <td>{{ consultation.dateconsultation ? consultation.dateconsultation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Medecin</th>
+                <td>{{ consultation.medecin }}</td>
+            </tr>
+            <tr>
+                <th>Donnees</th>
+                <td>{{ consultation.donnees }}</td>
+            </tr>
+            <tr>
+                <th>Synthese</th>
+                <td>{{ consultation.synthese }}</td>
+            </tr>
+            <tr>
+                <th>Decision</th>
+                <td>{{ consultation.decision }}</td>
+            </tr>
+            <tr>
+                <th>Maladies</th>
+                <td>{{ consultation.maladies }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ consultation.type }}</td>
+            </tr>
+            <tr>
+                <th>Lieu</th>
+                <td>{{ consultation.lieu }}</td>
+            </tr>
+            <tr>
+                <th>Ilc</th>
+                <td>{{ consultation.ilc ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Imc</th>
+                <td>{{ consultation.imc ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_consultations_index') }}">back to list</a>
+
+    <a href="{{ path('app_consultations_edit', {'id': consultation.id}) }}">edit</a>
+
+    {{ include('consultations/_delete_form.html.twig') }}
+{% endblock %}

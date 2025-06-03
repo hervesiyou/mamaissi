@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Personnels index{% endblock %}
+
+{% block body %}
+    <h1>Personnels index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>Cv</th>
+                <th>Diplome</th>
+                <th>Specialite</th>
+                <th>Valide</th>
+                <th>Diplomevalide</th>
+                <th>Prixconsultation</th>
+                <th>Nbvisite</th>
+                <th>NomComplet</th>
+                <th>Sexe</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Adresse</th>
+                <th>ZipCode</th>
+                <th>Ville</th>
+                <th>Pays</th>
+                <th>Type</th>
+                <th>Telephone</th>
+                <th>Date_naiss</th>
+                <th>Date_validation</th>
+                <th>Date_inscription</th>
+                <th>Datereinitialisation</th>
+                <th>DateLastconnection</th>
+                <th>Shortcode</th>
+                <th>Oldpwdlist</th>
+                <th>Token</th>
+                <th>Mobiletelephone</th>
+                <th>Imc</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for personnel in personnels %}
+            <tr>
+                <td>{{ personnel.id }}</td>
+                <td>{{ personnel.image }}</td>
+                <td>{{ personnel.cv }}</td>
+                <td>{{ personnel.diplome }}</td>
+                <td>{{ personnel.specialite }}</td>
+                <td>{{ personnel.valide ? 'Yes' : 'No' }}</td>
+                <td>{{ personnel.diplomevalide ? 'Yes' : 'No' }}</td>
+                <td>{{ personnel.prixconsultation }}</td>
+                <td>{{ personnel.nbvisite }}</td>
+                <td>{{ personnel.nomComplet }}</td>
+                <td>{{ personnel.sexe }}</td>
+                <td>{{ personnel.nom }}</td>
+                <td>{{ personnel.prenom }}</td>
+                <td>{{ personnel.username }}</td>
+                <td>{{ personnel.email }}</td>
+                <td>{{ personnel.password }}</td>
+                <td>{{ personnel.adresse }}</td>
+                <td>{{ personnel.zipCode }}</td>
+                <td>{{ personnel.ville }}</td>
+                <td>{{ personnel.pays }}</td>
+                <td>{{ personnel.type }}</td>
+                <td>{{ personnel.telephone }}</td>
+                <td>{{ personnel.dateNaiss ? personnel.dateNaiss|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ personnel.dateValidation ? personnel.dateValidation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ personnel.dateInscription ? personnel.dateInscription|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ personnel.datereinitialisation ? personnel.datereinitialisation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ personnel.dateLastconnection ? personnel.dateLastconnection|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ personnel.shortcode }}</td>
+                <td>{{ personnel.oldpwdlist }}</td>
+                <td>{{ personnel.token }}</td>
+                <td>{{ personnel.mobiletelephone }}</td>
+                <td>{{ personnel.imc ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_personnels_show', {'id': personnel.id}) }}">show</a>
+                    <a href="{{ path('app_personnels_edit', {'id': personnel.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="33">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_personnels_new') }}">Create new</a>
+{% endblock %}

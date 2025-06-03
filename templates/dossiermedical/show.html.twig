@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dossiermedical{% endblock %}
+
+{% block body %}
+    <h1>Dossiermedical</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ dossiermedical.id }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ dossiermedical.datecreation ? dossiermedical.datecreation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Lieucreation</th>
+                <td>{{ dossiermedical.lieucreation }}</td>
+            </tr>
+            <tr>
+                <th>Tuteur</th>
+                <td>{{ dossiermedical.tuteur }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ dossiermedical.photo }}</td>
+            </tr>
+            <tr>
+                <th>Numerodossier</th>
+                <td>{{ dossiermedical.numerodossier }}</td>
+            </tr>
+            <tr>
+                <th>Etatcivil</th>
+                <td>{{ dossiermedical.etatcivil }}</td>
+            </tr>
+            <tr>
+                <th>Groupesanguin</th>
+                <td>{{ dossiermedical.groupesanguin }}</td>
+            </tr>
+            <tr>
+                <th>Rhesus</th>
+                <td>{{ dossiermedical.rhesus }}</td>
+            </tr>
+            <tr>
+                <th>Electrophorese</th>
+                <td>{{ dossiermedical.electrophorese }}</td>
+            </tr>
+            <tr>
+                <th>Antecedentpersonnel</th>
+                <td>{{ dossiermedical.antecedentpersonnel }}</td>
+            </tr>
+            <tr>
+                <th>Antecedentfamillial</th>
+                <td>{{ dossiermedical.antecedentfamillial }}</td>
+            </tr>
+            <tr>
+                <th>Allergies</th>
+                <td>{{ dossiermedical.allergies }}</td>
+            </tr>
+            <tr>
+                <th>Facteurrisque</th>
+                <td>{{ dossiermedical.facteurrisque }}</td>
+            </tr>
+            <tr>
+                <th>Vaccindepistage</th>
+                <td>{{ dossiermedical.vaccindepistage }}</td>
+            </tr>
+            <tr>
+                <th>Biographie</th>
+                <td>{{ dossiermedical.biographie }}</td>
+            </tr>
+            <tr>
+                <th>Maladies</th>
+                <td>{{ dossiermedical.maladies }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_dossiermedical_index') }}">back to list</a>
+
+    <a href="{{ path('app_dossiermedical_edit', {'id': dossiermedical.id}) }}">edit</a>
+
+    {{ include('dossiermedical/_delete_form.html.twig') }}
+{% endblock %}

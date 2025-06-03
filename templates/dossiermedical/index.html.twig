@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dossiermedical index{% endblock %}
+
+{% block body %}
+    <h1>Dossiermedical index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Datecreation</th>
+                <th>Lieucreation</th>
+                <th>Tuteur</th>
+                <th>Photo</th>
+                <th>Numerodossier</th>
+                <th>Etatcivil</th>
+                <th>Groupesanguin</th>
+                <th>Rhesus</th>
+                <th>Electrophorese</th>
+                <th>Antecedentpersonnel</th>
+                <th>Antecedentfamillial</th>
+                <th>Allergies</th>
+                <th>Facteurrisque</th>
+                <th>Vaccindepistage</th>
+                <th>Biographie</th>
+                <th>Maladies</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dossiermedical in dossiermedicals %}
+            <tr>
+                <td>{{ dossiermedical.id }}</td>
+                <td>{{ dossiermedical.datecreation ? dossiermedical.datecreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ dossiermedical.lieucreation }}</td>
+                <td>{{ dossiermedical.tuteur }}</td>
+                <td>{{ dossiermedical.photo }}</td>
+                <td>{{ dossiermedical.numerodossier }}</td>
+                <td>{{ dossiermedical.etatcivil }}</td>
+                <td>{{ dossiermedical.groupesanguin }}</td>
+                <td>{{ dossiermedical.rhesus }}</td>
+                <td>{{ dossiermedical.electrophorese }}</td>
+                <td>{{ dossiermedical.antecedentpersonnel }}</td>
+                <td>{{ dossiermedical.antecedentfamillial }}</td>
+                <td>{{ dossiermedical.allergies }}</td>
+                <td>{{ dossiermedical.facteurrisque }}</td>
+                <td>{{ dossiermedical.vaccindepistage }}</td>
+                <td>{{ dossiermedical.biographie }}</td>
+                <td>{{ dossiermedical.maladies }}</td>
+                <td>
+                    <a href="{{ path('app_dossiermedical_show', {'id': dossiermedical.id}) }}">show</a>
+                    <a href="{{ path('app_dossiermedical_edit', {'id': dossiermedical.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="18">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_dossiermedical_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Entretiens{% endblock %}
+
+{% block body %}
+    <h1>Create new Entretiens</h1>
+
+    {{ include('entretiens/_form.html.twig') }}
+
+    <a href="{{ path('app_entretiens_index') }}">back to list</a>
+{% endblock %}

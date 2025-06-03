@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CommandeExames{% endblock %}
+
+{% block body %}
+    <h1>CommandeExames</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ commande_exame.id }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ commande_exame.description }}</td>
+            </tr>
+            <tr>
+                <th>Dateajout</th>
+                <td>{{ commande_exame.dateajout ? commande_exame.dateajout|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Dateeffectuation</th>
+                <td>{{ commande_exame.dateeffectuation }}</td>
+            </tr>
+            <tr>
+                <th>Domicile</th>
+                <td>{{ commande_exame.domicile ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Labo</th>
+                <td>{{ commande_exame.labo ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Region</th>
+                <td>{{ commande_exame.region }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ commande_exame.ville }}</td>
+            </tr>
+            <tr>
+                <th>Quartier</th>
+                <td>{{ commande_exame.quartier }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_commande_exames_index') }}">back to list</a>
+
+    <a href="{{ path('app_commande_exames_edit', {'id': commande_exame.id}) }}">edit</a>
+
+    {{ include('commande_exames/_delete_form.html.twig') }}
+{% endblock %}
