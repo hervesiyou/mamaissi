@@ -8,7 +8,7 @@ use App\Entity\Consultations;
 use Doctrine\Common\Collections\ArrayCollection;
 use ApiPlatform\Core\Annotation\ApiResource;
  
- #[ORM\Entity]
+#[ORM\Entity]
 #[ApiResource]
 #[ORM\Table(name:"hh_dossiermedical")]
 
@@ -63,7 +63,7 @@ class Dossiermedical{
 
     #[ORM\Column(name:"vaccindepistage", type:"text", length:2100, nullable:true)]
     private $vaccindepistage;
-    
+
     #[ORM\Column(name:"biographie", type:"text", length:2100, nullable:true)]
     private $biographie;
     

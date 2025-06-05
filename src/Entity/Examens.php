@@ -2,7 +2,10 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
- 
+
+use ApiPlatform\Metadata\ApiResource;
+
+#[ApiResource]
 #[ORM\Table(name:"hh_examens")]
 #[ORM\Entity(repositoryClass:"App\Repository\ExamensRepository")]
 class Examens{
@@ -30,7 +33,7 @@ class Examens{
     #[ORM\Column(name:"codeExamen", type:"string", length:60,nullable:true)]      
     private $codeexamen;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(name:"maladies",length: 255)]
     private ?string $maladies = null;
     
     public function __construct(){

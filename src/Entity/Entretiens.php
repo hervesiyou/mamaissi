@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
  
 #[ORM\Entity(repositoryClass:"App\Repository\EntretiensRepository")]
 #[ApiResource()]
-
 class Entretiens{
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -29,7 +28,7 @@ class Entretiens{
 
     #[ORM\Column(type:"string", length:255)]    
     private $message;
-    
+
     #[ORM\ManyToOne(targetEntity:"App\Entity\Patients", inversedBy:"entretiens")]   
     private $demandeur;
 

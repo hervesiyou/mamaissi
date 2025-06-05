@@ -6,7 +6,9 @@ namespace App\Entity;
 use App\Entity\Patients;
 use Doctrine\ORM\Mapping as ORM;
 
- 
+use ApiPlatform\Metadata\ApiResource;
+
+#[ApiResource]
 #[ORM\Table(name:"hh_programmes")]
 #[ORM\Entity]
 

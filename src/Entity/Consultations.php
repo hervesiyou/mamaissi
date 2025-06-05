@@ -1,10 +1,7 @@
 <?php
 
-namespace App\Entity;
-// use ApiPlatform\Core\Annotation\ApiResource;
-// use ApiPlatform\Core\Annotation\ApiSubresource;
-use ApiPlatform\Metadata\ApiResource;
-// use ApiPlatform\Metadata\ApiSubresource;
+namespace App\Entity; 
+use ApiPlatform\Metadata\ApiResource; 
 use Doctrine\ORM\Mapping as ORM; 
 //  * @ApiResource(attributes={"route_prefix"="/HHApi"})
 #[ORM\Entity(repositoryClass:"App\Repository\ConsultationsRepository")]
@@ -12,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name:"hh_consultations")]
 
 class Consultations{
-    
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]

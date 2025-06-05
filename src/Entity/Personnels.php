@@ -16,8 +16,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 #[ORM\Entity(repositoryClass:"App\Repository\PersonnelsRepository")]
 #[ApiResource]
 #[Vich\Uploadable]
-
 class Personnels implements \JsonSerializable{
+    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]

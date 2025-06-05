@@ -4,15 +4,17 @@ namespace App\Entity;
 
 use App\Repository\ExamenPrixRepository;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
 
- 
+#[ApiResource] 
 #[ORM\Entity(repositoryClass:ExamenPrixRepository::class)]
 class ExamenPrix{
     
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;     
+    private $id; 
+
     #[ORM\Column(type:"string", length:255)]
     private $nom;
      

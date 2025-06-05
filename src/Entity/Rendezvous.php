@@ -6,7 +6,9 @@ use App\Entity\Patients;
 use App\Entity\Personnels;
 use Doctrine\ORM\Mapping as ORM;
 
- 
+use ApiPlatform\Metadata\ApiResource;
+
+#[ApiResource]
 #[ORM\Table(name:"hh_rendezvous")]
 #[ORM\Entity]
  
