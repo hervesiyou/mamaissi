@@ -29,6 +29,7 @@ class Entretiens{
 
     #[ORM\Column(type:"string", length:255)]    
     private $message;
+    
     #[ORM\ManyToOne(targetEntity:"App\Entity\Patients", inversedBy:"entretiens")]   
     private $demandeur;
 

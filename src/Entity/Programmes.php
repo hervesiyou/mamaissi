@@ -31,6 +31,12 @@ private $slug;
 
 #[ORM\Column(name:"description", type:"text",   nullable:true)]     
 private $description;
+
+#[ORM\Column(length: 255, nullable: true)]
+private ?string $prix = null;
+
+#[ORM\Column(length: 255, nullable: true)]
+private ?string $avantages = null;
  
 public function __consctruct(){
     $this->dateinscription = new \Datetime("now");
@@ -82,6 +88,30 @@ public function getDuree() {
 }
 public function setDuree($datecreation){
     $this->duree = $datecreation;    
+    return $this;
+}
+
+public function getPrix(): ?string
+{
+    return $this->prix;
+}
+
+public function setPrix(?string $prix): static
+{
+    $this->prix = $prix;
+
+    return $this;
+}
+
+public function getAvantages(): ?string
+{
+    return $this->avantages;
+}
+
+public function setAvantages(?string $avantages): static
+{
+    $this->avantages = $avantages;
+
     return $this;
 } 
 

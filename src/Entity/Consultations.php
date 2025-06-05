@@ -12,31 +12,36 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name:"hh_consultations")]
 
 class Consultations{
+    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
-    #[ORM\ManyToOne(targetEntity:"App\Entity\Dossiermedical", inversedBy:"consultations")]
-     //  @ORM\JoinColumn(name:"dossiermedical_id", referencedColumnname:"id", cascade={'update'}) 
+
+    #[ORM\ManyToOne(targetEntity:"App\Entity\Dossiermedical", inversedBy:"consultations")] 
      private $dossiermedical;
 
-     #[ORM\Column(name:"dateconsultation", type:"datetime",   nullable:true)]
-    
+     #[ORM\Column(name:"dateconsultation", type:"datetime",   nullable:true)]    
     private $dateconsultation;
+
     #[ORM\Column(name:"medecin", type:"string", length:100, nullable:true)]
     private $medecin;
+
     #[ORM\Column(name:"donnees", type:"text", length:65535, nullable:true)]
     private $donnees;
+
     #[ORM\Column(name:"synthese", type:"text", length:65535, nullable:true)]   
     private $synthese;
 
     #[ORM\Column(name:"decision", type:"text", length:65535, nullable:true)]   
     private $decision;
+
     #[ORM\Column(name:"maladies", type:"text", length:65535, nullable:true)]
     private $maladies;
  
     #[ORM\Column(name:"type", type:"string", length:15, nullable:true)]     
     private $type;
+
     #[ORM\Column(name:"lieu", type:"string", length:120, nullable:false)]
     private $lieu;
 

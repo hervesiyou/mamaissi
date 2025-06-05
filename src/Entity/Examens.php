@@ -10,9 +10,7 @@ class Examens{
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-     private $id;
-     
-    
+     private $id;    
  
     #[ORM\Column(name:"cout", type:"integer", nullable:true)]
     private $cout;

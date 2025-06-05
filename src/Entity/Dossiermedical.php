@@ -18,6 +18,7 @@ class Dossiermedical{
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
+
     #[ORM\OneToMany(targetEntity:"App\Entity\Consultations",  mappedBy:"dossiermedical")]    
     private $consultations;
 
@@ -49,20 +50,20 @@ class Dossiermedical{
     #[ORM\Column(name:"Electrophorese", type:"string", length:100, nullable:true)]
  
     private $electrophorese;
-    #[ORM\Column(name:"antecedentpersonnel", type:"text", length:1200, nullable:true)]
-    
+    #[ORM\Column(name:"antecedentpersonnel", type:"text", length:1200, nullable:true)]    
     private $antecedentpersonnel;
-    #[ORM\Column(name:"antecedentfamillial", type:"text", length:2100, nullable:true)]
- 
+
+    #[ORM\Column(name:"antecedentfamillial", type:"text", length:2100, nullable:true)] 
     private $antecedentfamillial;
     #[ORM\Column(name:"allergies", type:"text", length:2100, nullable:true)]
  
     private $allergies;
-    #[ORM\Column(name:"facteurrisque", type:"text", length:2100, nullable:true)]
-   
+    #[ORM\Column(name:"facteurrisque", type:"text", length:2100, nullable:true)]   
     private $facteurrisque;
+
     #[ORM\Column(name:"vaccindepistage", type:"text", length:2100, nullable:true)]
     private $vaccindepistage;
+    
     #[ORM\Column(name:"biographie", type:"text", length:2100, nullable:true)]
     private $biographie;
     

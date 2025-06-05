@@ -35,7 +35,8 @@ class Rendezvous{
     private $annee;
  
     #[ORM\Column(name:"etat", type:"string", length:50, nullable:true)]      
-    private $etat;    
+    private $etat; 
+
     #[ORM\Column(name:"but", type:"text", length:65535, nullable:true)]     
     private $but;
     
@@ -70,7 +71,8 @@ class Rendezvous{
     private $coderdv;
     
     #[ORM\Column(name:"modevisio", type:"string", length:100, nullable:true)]     
-    private $modevisio;    
+    private $modevisio;  
+
     #[ORM\Column(name:"codepatient", type:"string", length:100, nullable:true)]    
     private $codepatient;
  
@@ -96,9 +98,9 @@ class Rendezvous{
     private $code;
     
     public function __construct() {
-        $this->heurevalide="non";
-        $this->datecreation=new \Datetime("now");
-        $this->etat="Pas encore Validé";
+        $this->heurevalide = "non";
+        $this->datecreation = new \Datetime("now");
+        $this->etat = "Pas encore Validé";
 
         $random = sprintf(sha1($this->getId()."".time()), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
         $random = str_pad($random, 10, '0', STR_PAD_LEFT); 
