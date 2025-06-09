@@ -145,6 +145,12 @@ class Patients  implements \JsonSerializable, UserInterface, PasswordAuthenticat
         )
     ]      
     private $programmes;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $resetToken = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?\DateTime $resetRequestAt = null;
  
 
     public function __construct() {
@@ -564,6 +570,30 @@ class Patients  implements \JsonSerializable, UserInterface, PasswordAuthenticat
     public function eraseCredentials(): void
     {
         // Si vous stockez des données sensibles, vous pouvez les effacer ici
+    }
+
+    public function getResetToken(): ?string
+    {
+        return $this->resetToken;
+    }
+
+    public function setResetToken(?string $resetToken): static
+    {
+        $this->resetToken = $resetToken;
+
+        return $this;
+    }
+
+    public function getResetRequestAt(): ?\DateTime
+    {
+        return $this->resetRequestAt;
+    }
+
+    public function setResetRequestAt(?\DateTime $resetRequestAt): static
+    {
+        $this->resetRequestAt = $resetRequestAt;
+
+        return $this;
     }
      
 }

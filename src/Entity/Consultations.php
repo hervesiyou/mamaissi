@@ -3,7 +3,7 @@
 namespace App\Entity; 
 use ApiPlatform\Metadata\ApiResource; 
 use Doctrine\ORM\Mapping as ORM; 
-//  * @ApiResource(attributes={"route_prefix"="/HHApi"})
+ 
 #[ORM\Entity(repositoryClass:"App\Repository\ConsultationsRepository")]
 #[ApiResource]
 #[ORM\Table(name:"hh_consultations")]

@@ -28,7 +28,7 @@ private $duree;
 #[ORM\Column(name:"titre", type:"string",   nullable:false)]
 private $nom;
 
-#[ORM\Column(name:"slug", type:"string",   nullable:false)]
+#[ORM\Column(name:"slug", type:"string",   nullable:true)]
 private $slug;
 
 #[ORM\Column(name:"description", type:"text",   nullable:true)]     

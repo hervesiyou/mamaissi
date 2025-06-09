@@ -10,9 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
 
 #[ApiResource]
-
 #[ORM\Entity(repositoryClass: CommandeExamesRepository::class)]
 class CommandeExames {
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
