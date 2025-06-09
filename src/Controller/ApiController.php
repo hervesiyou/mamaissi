@@ -16,6 +16,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
  
+use OpenApi\Attributes as OA;
+
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
@@ -176,7 +178,6 @@ final class ApiController extends AbstractController {
         return new JsonResponse($data, 200);
     }
 
-
     #[Route('/register', name: 'api_register', methods: ['POST'])]
     public function register( Request $request,   ): JsonResponse {
         // 🔹 Décoder le JSON reçu depuis l'app mobile
@@ -213,7 +214,7 @@ final class ApiController extends AbstractController {
         return $this->json(['message' => 'Inscription réussie', 'user_id' => $user->getId()], 201);
     }
 
-    #[Route('/login', name: 'api_login', methods: ['POST'])]
+    #[Route('/login', name: 'api_login', methods: ['POST'])]   
     public function login( Request $request,  ): JsonResponse {
         
         $data = json_decode($request->getContent(), true);
@@ -381,7 +382,7 @@ final class ApiController extends AbstractController {
         $data = [];
         foreach ($programmes as $examen) {
             $data[] = [
-                
+
                 'date' => $examen->getJour()."/".$examen->getMois()."/".$examen->getAnnee(),
                 'medecin' => $examen->getPersonnel()?->getNom(),
                 'etat' => $examen->getEtat(),
