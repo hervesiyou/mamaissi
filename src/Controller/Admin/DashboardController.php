@@ -21,25 +21,36 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 
-#[AdminDashboard(routePath: '/admin', routeName: 'admin')]
+#[AdminDashboard(routePath: '/idm', routeName: 'admin')]
 class DashboardController extends AbstractDashboardController{
 
-    public function index(): Response    {
-        // return parent::index();
+    public function __construct(
+        private EntityManagerInterface $em, 
+        private RequestStack $session
+    ) {  
+    }
 
-        // Option 1. You can make your dashboard redirect to some common page of your backend
-        //
+    public function index(): Response    {
+
+        $iduser = $this->session->getSession()->get("IDEADM"); 
+        if ($iduser == "Edu Hervé") { 
+
+            $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
+            return $this->redirect($adminUrlGenerator->setController(PatientsCrudController::class)->generateUrl());
+
+        } 
+        return $this->redirectToRoute("app_aspro_login"); 
         // 1.1) If you have enabled the "pretty URLs" feature:
         // return $this->redirectToRoute('admin_user_index');
         //
         // 1.2) Same example but using the "ugly URLs" that were used in previous EasyAdmin versions:
-        $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
-        return $this->redirect($adminUrlGenerator->setController( PatientsCrudController::class)->generateUrl());
-
-        // Option 2. You can make your dashboard redirect to different pages depending on the user
-        //
+        // $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
+        // return $this->redirect($adminUrlGenerator->setController( PatientsCrudController::class)->generateUrl());
+ 
         // if ('jane' === $this->getUser()->getUsername()) {
         //     return $this->redirectToRoute('...');
         // }
@@ -50,14 +61,12 @@ class DashboardController extends AbstractDashboardController{
         // return $this->render('some/path/my-dashboard.html.twig');
     }
 
-    public function configureDashboard(): Dashboard
-    {
+    public function configureDashboard(): Dashboard {
         return Dashboard::new()
-            ->setTitle('Mamaissi');
+            ->setTitle('IPOCRATE - Gestion Application de Suivi des Patients');
     }
 
-    public function configureMenuItems(): iterable
-    {
+    public function configureMenuItems(): iterable  {
         return [
              
               MenuItem::linkToDashboard('Accueil', 'fa fa-home'),

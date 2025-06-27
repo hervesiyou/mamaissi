@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{{asset('assets/img/logo.png')}}">
+
+    <title>Administration - Login</title> 
+    <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.cs')}}s" rel="stylesheet">
+   
+</head>
+
+<body class="bg-gradient-success">
+
+    <div class="container"> 
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                       
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image">
+
+                                <img src="{{asset('assets/img/about.png')}}" class="m-5" style="max-width: 80%;" />
+                            
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4"> Administration !</h1>
+                                    </div>
+                                    <form class="user" method="post" action="{{path('app_aspro_login')}}">
+                                        <div class="form-group mt-2">
+                                            <input type="text" name="email" class="form-control form-control-user" aria-describedby="emailHelp"
+                                                placeholder="Login ...">
+                                        </div>
+                                        <div class="form-group my-2">
+                                            <input type="password" name="pwd" class="form-control form-control-user" placeholder="Mot de passe">
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-info btn-user btn-block">
+                                            Me Connecter
+                                        </button>
+                                        <hr> 
+                                    </form>
+                                    <hr> 
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+      <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+     
+
+</body>
+
+</html>
